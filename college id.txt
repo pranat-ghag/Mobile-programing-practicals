@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("College ID"),
+          backgroundColor: Colors.blue,
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              Image.network(
+                  "https://media.licdn.com/dms/image/v2/C4D0BAQE6avEzQhez2Q/company-logo_200_200/company-logo_200_200/0/1654496736241?e=2147483647&v=beta&t=LBkFF_-TQTDJR8Y7s1TCmx_yRhmqyT4IGQUFASBFhMQ",
+                  height: 110, width: 110),
+              Text("VIVEKANAND EDUCATION OF SOCIETY'S \n"
+                  "College of Arts,Science & Commerce",
+                style: TextStyle(color: Colors.red),
+              ),
+              Text("Sindhi Society,Chembur,Mumbai-400071",
+                style: TextStyle(color: Colors.black),
+              ),
+              Text("NAAC RE-ACCREDITED 'A' GRADE",
+                style: TextStyle(color: Colors.blue,fontSize:20 ),
+              ),
+              Text("IDENTITY CARD 2025-26", style: TextStyle(
+                  color: Colors.white, backgroundColor: Colors.blue,fontSize: 20),
+              ),
+              Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOnsFBdxOxuRR8_1NDaTl4AEIU9K9VJlRBO4Z5IoSillKLXgb45zL26vQTUf9Ia5wv8vI&usqp=CAU",
+               height:125,width: 125),
+              Text("ALIA BHATT",style: TextStyle(color: Colors.red,fontSize: 20),
+              ),
+              Text("CLASS:SYIT \n"
+              "ROLLNO:32 \n"
+              "STU.ID:5065931 \n"
+              "ABC ID:599840915937",style: TextStyle(color: Colors.black),
+              ),
+              Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9cnGHX8IGNcFI7kCNReR4TWTgrPzcltsb3w&s",height: 100,width:100),
+              Text("5065931",style: TextStyle(color: Colors.black),
+              ),
+              
+             ],
+
+          ),
+        ),
+      )
+  )
+  );
+}
+
+
+
+
+
+
+
