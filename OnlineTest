@@ -1,0 +1,243 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: " Internal Exam ",
+      home: const MyAlert(),
+    );
+  }
+}
+
+class MyAlert extends StatelessWidget {
+  const MyAlert({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.cyan,
+      appBar: AppBar(
+        title: const Text("Internal Exam\n   Vaibhavi", style: TextStyle(fontSize: 24)),
+        centerTitle: true,
+        backgroundColor: Colors.orangeAccent,
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Name',
+                        hintText: ' Please Enter your name',
+                        prefixIcon: Icon(Icons.person),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Roll no',
+                        hintText: ' Please Enter your roll no.',
+                        prefixIcon: Icon(Icons.person),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Class',
+                        hintText: ' Please Enter your Class',
+                        prefixIcon: Icon(Icons.person),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SeconRoute(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Start Exam',
+                ), // Added child for the button
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SeconRoute extends StatelessWidget {
+  const SeconRoute({super.key}); // Added const constructor
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Questions For Internal-Exam")),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'What is your OS ?',
+                  hintText: 'Answer',
+                  prefixIcon: Icon(Icons.question_answer),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'What meant by Flutter ?',
+                  hintText: 'Answer',
+                  prefixIcon: Icon(Icons.question_answer),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'What is full form of DBMS ?',
+                  hintText: 'Answer',
+                  prefixIcon: Icon(Icons.question_answer),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'What is SE ?',
+                  hintText: 'Answer',
+                  prefixIcon: Icon(Icons.question_answer),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Why your doing IT ?',
+                  hintText: 'Answer',
+                  prefixIcon: Icon(Icons.question_answer),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ElevatedButton(
+                onPressed: () {
+                  showAlertDialog(context);
+                },
+                child: const Text("Submit"),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void showAlertDialog(BuildContext context) {
+  // Define the 'OK' button
+
+  AlertDialog alert = AlertDialog(
+    title: const Text("Text"),
+    content: const Text("Choose one for further process"),
+    actions: [
+      TextButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        child: Text("Review"),
+      ),
+      TextButton(
+        onPressed: () {
+          showAlertDialog1(context);
+        },
+        child: Text("Final"),
+      ),
+    ],
+  );
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+void showAlertDialog1(BuildContext context) {
+  // Define the 'OK' button
+
+  AlertDialog alert = AlertDialog(
+    title: const Text("Thak you"),
+    content: const Text("Your Response is submitted."),
+    actions: [
+
+      TextButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const MyAlert(),
+            ),
+          );
+        },
+        child: Text("OK"),
+      ),
+    ],
+  );
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
