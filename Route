@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'ROUTE',
+      home: RouteNew(), // First screen of your app
+    );
+  }
+}
+
+// First Route (Screen)
+class RouteNew extends StatefulWidget {
+  const RouteNew({super.key}); // Added const constructor
+
+  @override
+  State<RouteNew> createState() => _RouteNewState();
+}
+
+class _RouteNewState extends State<RouteNew> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Pranat\n FIRST ROUTE"), // Changed title for clarity
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SeconRoute()), // Navigate to SeconRoute
+            );
+          },
+          child: const Text('Go to Second Route'), // Added child for the button
+        ),
+      ),
+    );
+  }
+}
+
+// Second Route (Screen) - Placeholder
+class SeconRoute extends StatelessWidget {
+  const SeconRoute({super.key}); // Added const constructor
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("SECOND ROUTE"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context); // Navigate back to the first route
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
