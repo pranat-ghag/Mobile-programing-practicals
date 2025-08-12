@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+void main() {
+  runApp( alertclass1());
+}
+class alertclass1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(debugShowCheckedModeBanner: false,
+      title: 'Flutter: Alert',
+      home: alertclass2(),
+    );
+  }
+}
+class alertclass2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.orangeAccent,
+        appBar: AppBar(title: Text("Alert 29-07-2025",
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,
+    ),
+    ),
+    centerTitle: true, backgroundColor: Colors.amberAccent,
+    ),
+      body: Column(
+        children: [
+         Text("Parina", style: TextStyle(color: Colors.black,
+             fontWeight: FontWeight.bold,fontSize: 25
+      ),
+      ),
+        Center(child:
+        Padding(
+    padding: EdgeInsets.all(25),
+        child: ElevatedButton(
+    child: Text('Show Alert'),
+    onPressed: () {showAlertDialog(context);},
+    ),
+    ),
+        ),
+        ],
+      ),
+    );
+  }
+}
+
+void showAlertDialog(BuildContext context) {
+  Widget ok = TextButton(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      child: Text('OK'));
+
+  AlertDialog alert = AlertDialog(
+    actions: [ok],
+    title:  Text('Sample Alert'),
+    content: Text('This is first alert message'),
+  );
+
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      }
+      );
+}
