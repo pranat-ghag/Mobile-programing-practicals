@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+void main() {
+  runApp( MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Toast Message',
+      home: HomeScreen()
+    );
+  }
+}
+
+class  HomeScreen extends StatelessWidget {
+  @override
+  Widget build (BuildContext context) {
+    return Scaffold(
+      appBar:AppBar(centerTitle:true,
+        foregroundColor:Colors.white,
+          title:Text("Toast 21-08-25"),
+        backgroundColor:Colors.blue[900],
+      ),
+      body: Toast()
+    );
+  }
+}
+class Toast extends StatefulWidget {
+  State createState() => ToastState ();
+}
+class ToastState extends State <Toast> {
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: 20),
+          Text("Pranali Yenare",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,
+                color: Colors.black),),
+          //Button
+          Container(
+            margin: EdgeInsets.all(30),
+            child: ElevatedButton(onPressed: () {
+              showToast();
+            },
+                child: Text('Click Here',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                )),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+  void showToast() {
+  Fluttertoast.showToast(
+      msg: "Hello SYIT",
+  timeInSecForIosWeb:5,
+  textColor:Colors.black,
+  );
+
+Yeh likhna nahi hai toast ke liye yeh karna hai 
+project file mein se pubspec.yaml
+Version for Pubget 
+Fluttertoast ^8.2.4
+
+Toast
