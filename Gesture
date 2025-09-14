@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Gesture',
+        home: HomeScreen()
+    );
+  }
+}
+
+class  HomeScreen extends StatelessWidget {
+  @override
+  Widget build (BuildContext context) {
+    return Scaffold(
+        appBar:AppBar(centerTitle:true,
+          foregroundColor:Colors.white,
+          title:Text("Gesture 22-08-25"),
+          backgroundColor:Colors.blue[900],
+        ),
+        body: class3()
+    );
+  }
+}
+class class3 extends StatefulWidget {
+  State createState() => class3State();
+}
+class class3State extends State<class3>{
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 250,
+        height: 100,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 3),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: GestureDetector(
+          child: Text("Click Here", textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 40, color: Colors.green[900]),),
+          onLongPress: () {
+            print('Long Press');
+          },
+          onDoubleTap: () {
+            print('Double Press');
+          },
+          onTapCancel: () {
+            print('Cancel');
+          },
+
+
+        ),
+      ),
+    );
+  }
+  }
+
+Gesture
