@@ -1,0 +1,154 @@
+10th practical 
+Q1 text
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Scrollbar1',
+        home: HomeScreen()
+    );
+  }
+}
+
+class  HomeScreen extends StatelessWidget {
+  @override
+  Widget build (BuildContext context) {
+    return Scaffold(
+        appBar:AppBar(centerTitle:true,
+          foregroundColor:Colors.black,
+          title:Text("ScrollBar1 12-09-25"),
+          backgroundColor:Colors.lightGreen[200],
+        ),
+        body: Scrollbar1()
+    );
+  }
+}
+class Scrollbar1 extends StatefulWidget {
+  State createState() => ScrollbarState ();
+}
+class ScrollbarState extends State<Scrollbar1>{
+  final ScrollController scrollController = ScrollController();
+  Widget build(BuildContext context){
+    return Scrollbar(
+      controller: scrollController,
+      trackVisibility: true,
+      thumbVisibility: true,
+      thickness: 12,
+      radius: Radius.circular(20),
+      child: ListView.builder(
+        controller:scrollController,
+        itemCount: 10,
+        itemBuilder: (context,index) {
+          return Container(
+            alignment: Alignment.center,
+            margin:EdgeInsets.all(8),
+            height: 120,
+            color: Colors.pink[100],
+            child:Text("Item $index"),
+          );
+        }
+      ),
+
+    );
+  }
+}
+10th practical m
+Q2 Images
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Scrollbar1',
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        foregroundColor: Colors.black,
+        title: Text("ScrollBar1  Images 12-09-25"),
+        backgroundColor: Colors.lightGreen[200],
+      ),
+      body: Scrollbar1(),
+    );
+  }
+}
+
+class Scrollbar1 extends StatefulWidget {
+  @override
+  State createState() => ScrollbarState();
+}
+
+class ScrollbarState extends State<Scrollbar1> {
+  final ScrollController scrollController = ScrollController();
+
+  // 10 sample image URLs
+  final List<String> imageUrls = [
+    "https://static.wikitide.net/deathbattlewiki/9/98/Portrait.tanjirokamado.png",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGHmPmPkD0OU9wVu6izfUfZ1YeRYwl77sBzQ&s",
+    "https://i.redd.it/sharing-the-muzan-fan-art-that-my-friend-made-for-me-v0-ovqx69at0akc1.jpg?width=2208&format=pjpg&auto=webp&s=bc19d6353d084a16437b8aa769a83b5ea653c90b",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLw-4FOYq-4Zb9ttwy-conk_LUwI5kdQhvvA&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb1daJtv-7P4nv13043HWiw2g3X5xReJ1LbQ&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT08x1jwIRpaFKNx5tVdzEZj_ySX3SuhFTYlA&s",
+    "https://www.themarysue.com/wp-content/uploads/2022/08/itachi-.webp?fit=1200%2C900",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2p5jHKFaZn_ZuvRBSKtxOkrKJjsqbd-AFHQ&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsvKgzQeoOeE9j1dn9QrGbPRB48VnJ--sdXA&s",
+    "https://images.immediate.co.uk/production/volatile/sites/3/2023/03/Jujutsu-Kaisen-2-Cropped-b7cca53.png?resize=768,512",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar(
+      controller: scrollController,
+      trackVisibility: true,
+      thumbVisibility: true,
+      thickness: 12,
+      radius: Radius.circular(20),
+      child: ListView.builder(
+        controller: scrollController,
+        itemCount: imageUrls.length,
+        itemBuilder: (context, index) {
+    return Padding(
+    padding:EdgeInsets.symmetric(vertical:10),
+    child:Center(
+    child: Container(
+    width:300,
+    height: 250,
+    decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    boxShadow: [BoxShadow(blurRadius: 5,color:Colors.pink),],
+    ),
+    child:ClipRRect(
+    borderRadius: BorderRadius.circular(10),
+    child:Image.network(imageUrls[index],
+    fit:BoxFit.cover,
+
+    ),
+    ),
+    ),
+    ),
+    );
+
+    }
+      )
+    );
+  }
+}
